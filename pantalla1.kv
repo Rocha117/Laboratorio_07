@@ -1,0 +1,38 @@
+<Pantalla1Window>:
+    orientation: 'vertical'
+    spacing: 50
+    padding: (100,)
+    canvas:
+        Color:
+            rgba: [18/255, 11/255, 46/255 , 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id: NombreL
+        text: 'Nombre'
+        font_name: 'Arial'
+        font_size: 50
+        color: [21/255, 225/255, 11/255]
+        background_normal: ''
+        size_hint: (.7, .2)
+        pos_hint: {'center_x': .5, 'center_y': .5 }
+    TextInput:
+        id: NombreI
+        font_size: 50
+        foreground_color: [21/255, 225/255, 11/255]
+        background_color: [1,0,0, .1]
+        background_normal: ''
+        size_hint: (.7, .2)
+        pos_hint: {'center_x': .5, 'center_y': .5 }
+        multiline: False
+        on_text_validate: root.nombre_label()
+    Button:
+        text: 'Guardar'
+        font_size: 50
+        size_hint: (.4, .1)
+        pos_hint: {"center_x":.5, "center_y": .5}
+        background_color: [32/255, 37/255, 51/255]
+        background_normal: ''
+        on_press: root.jugar()
+        
