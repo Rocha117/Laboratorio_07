@@ -1,38 +1,132 @@
+MyScreenManager:
+    Pantalla1Window:
+        name:'pantalla1'
+    Pantalla02:
+        name:'pantalla02'
+    Pantalla03:
+        name:'pantalla03'
+
 <Pantalla1Window>:
-    orientation: 'vertical'
-    spacing: 50
-    padding: (100,)
-    canvas:
-        Color:
-            rgba: [18/255, 11/255, 46/255 , 1]
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    Label:
-        id: NombreL
-        text: 'Nombre'
-        font_name: 'Arial'
-        font_size: 50
-        color: [21/255, 225/255, 11/255]
-        background_normal: ''
-        size_hint: (.7, .2)
-        pos_hint: {'center_x': .5, 'center_y': .5 }
-    TextInput:
-        id: NombreI
-        font_size: 50
-        foreground_color: [21/255, 225/255, 11/255]
-        background_color: [1,0,0, .1]
-        background_normal: ''
-        size_hint: (.7, .2)
-        pos_hint: {'center_x': .5, 'center_y': .5 }
-        multiline: False
-        on_text_validate: root.nombre_label()
-    Button:
-        text: 'Guardar'
-        font_size: 50
-        size_hint: (.4, .1)
-        pos_hint: {"center_x":.5, "center_y": .5}
-        background_color: [32/255, 37/255, 51/255]
-        background_normal: ''
-        on_press: root.jugar()
-        
+    Screen:
+        name:'pantalla1'
+        orientation: 'vertical'
+        spacing: 50
+        padding: (100,)
+        canvas:
+            Color:
+                rgba: [18/255, 11/255, 46/255 , 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: NombreL
+            text: 'Nombre'
+            font_name: 'Arial'
+            font_size: 50
+            color: [21/255, 225/255, 11/255]
+            background_normal: ''
+            size_hint: (.7, .2)
+            pos_hint: {'top':.9, 'center_x':.5 }
+        TextInput:
+            id: NombreI
+            font_size: 50
+            foreground_color: [21/255, 225/255, 11/255]
+            background_color: [1,0,0, .1]
+            background_normal: ''
+            size_hint: (.7, .2)
+            pos_hint: {'center_x': .5, 'center_y': .5 }
+            multiline: False
+            on_text_validate: root.nombre_label()
+        Button:
+            text: 'Guardar'
+            font_size: 50
+            size_hint: (.4, .1)
+            pos_hint: {"top":.25, "center_x": .5}
+            background_color: [32/255, 37/255, 51/255]
+            background_normal: ''
+            on_press: root.datos_base(),root.next()
+<Pantalla02>:
+    Screen:
+        name:'pantalla02'
+        Label:
+            id:mensaje
+            text:'RESPONDA EN EL TIEMPO INDICADO:     '+ str(int(root.tiempo))
+            font_size:'30'
+            size_hint:1,.33
+            pos_hint:{"top":1,"left":1}
+        Label:
+            id:numeros
+            text:str(root.num1) + '   +   ' +str(root.num2)+'   =   '
+            font_size:'30'
+            size_hint:.7,.33
+            pos_hint:{"top":.66,"left":1}
+        TextInput:
+            id:input
+            font_size:'30'
+            size_hint:.15,.22
+            pos_hint:{"top":.6,"right":.75}
+            multiline:False
+            height:'30'
+            input_filter:'int'
+            on_text_validate:root.enviar(self.text)
+        Button:
+            text: 'Iniciar'
+            size_hint:.15,.22
+            pos_hint:{"right":.95,"top":.6}
+            on_release:root.iniciar()
+        Label:
+            id:'inic'
+            text:str(root.inic)
+            font_size:'30'
+            size_hint:.5,.33
+            pos_hint:{"top":.33,"left":1}
+        Label:
+            id:racha
+            text: "Racha: " + str(root.racha)
+            font_size:'30'
+            size_hint:.5,.33
+            pos_hint:{"top":.33,"right":1}
+
+<Pantalla03>:
+    Screen:
+        name:'pantalla03'
+        GridLayout:
+            cols:2
+            Label:
+                id:"lbl_n"
+                text:"Nombre"
+                font_size:25
+            Label:
+                id:"lbl_p"
+                text:"Puntaje"
+                font_size:25
+            Label:
+                id:"sc1"
+                font_size:20
+            Label:
+                id:"scp1"
+                font_size:20
+            Label:
+                id:"sc2"
+                font_size:20
+            Label:
+                id:"scp2"
+                font_size:20
+            Label:
+                id:"sc3"
+                font_size:20
+            Label:
+                id:"scp3"
+                font_size:20
+            Label:
+                id:"sc4"
+                font_size:20
+            Label:
+                id:"scp4"
+                font_size:20
+            Label:
+                id:"sc5"
+                font_size:20
+            Label:
+                id:"scp5"
+                font_size:20
