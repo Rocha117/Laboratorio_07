@@ -1,0 +1,21 @@
+
+<CamaraWindow>:
+    orientation: 'vertical'
+    Camera:
+        resolution: (600, 400)
+        index: self.index
+        play: False
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: '48dp'
+        Button:
+            text: 'Iniciar'
+            on_press: camera.play = not camera.play
+            height: '20dp'
+        Button:
+            text: 'Parar'
+            on_release: camera.play = False
+        Button:
+            text: 'Cerrar'
+            on_release: root.stop()
